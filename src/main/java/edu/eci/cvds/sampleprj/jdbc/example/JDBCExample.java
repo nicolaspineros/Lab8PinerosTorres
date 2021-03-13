@@ -57,8 +57,8 @@ public class JDBCExample {
             System.out.println("-----------------------");
             
             
-            int suCodigoECI=20134423;
-            registrarNuevoProducto(con, suCodigoECI, "SU NOMBRE", 99999999);            
+            int suCodigoECI=2155501;
+            registrarNuevoProducto(con, suCodigoECI, "CristhianTorres", 77710);            
             con.commit();
                         
             
@@ -81,9 +81,14 @@ public class JDBCExample {
      */
     public static void registrarNuevoProducto(Connection con, int codigo, String nombre,int precio) throws SQLException{
         //Crear preparedStatement
+        String crear ="INSERT INTO ORD_PRODUCTOS (codigo,nombre,precio) VALUES (?,?,?)";
         //Asignar parámetros
+        PreparedStatement nuevo = con.prepareStatement (crear);
+        nuevo.setInt(1, codigo);
+        nuevo.setString(2, nombre);
+        nuevo.setInt(3,precio);
         //usar 'execute'
-
+        nuevo.execute();
         
         con.commit();
         
@@ -127,13 +132,26 @@ public class JDBCExample {
      * @return el costo total del pedido (suma de: cantidades*precios)
      */
     public static int valorTotalPedido(Connection con, int codigoPedido){
-        
+        int total = 0;
         //Crear prepared statement
+        String valorPedido ="SELECT SUM(precio) FROM ORD_PRODUCTOS INNER JOIN ORD_DETALLE_PEDIDO ON producto_fk = codigo WHERE pedido_fk = ?";
         //asignar parámetros
-        //usar executeQuery
-        //Sacar resultado del ResultSet
+        try {
+            PreparedStatement valores = con.prepareStatement (valorPedido);
+            valores.setInt(1, codigoPedido);
+            //usar executeQuery
+            ResultSet rs = valores.executeQuery();
+            //Sacar resultado del ResultSet
+            while(rs.next()){
+                int valoresGenerados = rs.getInt(1);
+                total += valoresGenerados;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(JDBCExample.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
-        return 0;
+        
+        return total;
     }
     
 
