@@ -5,7 +5,20 @@
   
 <mapper namespace="edu.eci.cvds.sampleprj.dao.mybatis.mappers.ItemMapper">
 
+    <resultMap type="Item" id="ItemResult">
+        <id property="id" column="id"/>
+        <result property="nombre" column="nombre"/>
+        <result property="descripcion" column="descripcion"/>
+        <result property="fechalanzamiento" column="fechalanzamiento"/>
+        <result property="tarifaxdia" column="tarifaxdia"/>
+        <result property="formatorenta" column="formatorenta"/>
+        <result property="genero" column="genero"/>
+        <result property="TIPOITEM_id" column="TIPOITEM_id"/>
+    </resultMap>
 
+    <select parameterType="map" id="consultarItems" resultMap="ItemsResult">
+        SELECT * FROM VI_ITEMS
+    </select>
     
     
 </mapper>
