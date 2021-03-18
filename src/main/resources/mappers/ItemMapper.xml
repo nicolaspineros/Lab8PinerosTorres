@@ -13,7 +13,7 @@
         <result property="tarifaxdia" column="tarifaxdia"/>
         <result property="formatorenta" column="formatorenta"/>
         <result property="genero" column="genero"/>
-        <result property="TIPOITEM_id" column="TIPOITEM_id"/>
+        <association property="TIPOITEM_id" javaType="TipoItem"></association>
     </resultMap>
 
     <select parameterType="map" id="consultarItems" resultMap="ItemsResult">

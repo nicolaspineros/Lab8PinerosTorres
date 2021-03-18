@@ -63,8 +63,9 @@ public class MyBatisExample {
         SqlSession sqlss = sessionfact.openSession();
 
         
-        //Crear el mapper y usarlo: 
-        //ClienteMapper cm=sqlss.getMapper(ClienteMapper.class)
+        //Crear el mapper y usarlo:
+        ClienteMapper cm=sqlss.getMapper(ClienteMapper.class);
+        System.out.println(cm.consultarClientes());
         //cm...
         
         
