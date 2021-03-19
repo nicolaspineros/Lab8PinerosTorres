@@ -68,12 +68,8 @@ public class MyBatisExample {
         ClienteMapper cm=sqlss.getMapper(ClienteMapper.class);
         System.out.println(cm.consultarClientes());
         //cm...
-        
-        
-        
         sqlss.commit();
-        
-        
+
         sqlss.close();
 
         
