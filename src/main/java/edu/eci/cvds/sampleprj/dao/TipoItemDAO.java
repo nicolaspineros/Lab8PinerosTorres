@@ -4,7 +4,7 @@ import edu.eci.cvds.samples.entities.TipoItem;
 
 public interface TipoItemDAO {
 
-    public void save(TipoItem ti) throws PersistenceException;
+    public void save(String des) throws PersistenceException;
 
     public TipoItem load(int id) throws PersistenceException;
 
