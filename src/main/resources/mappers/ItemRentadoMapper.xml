@@ -9,7 +9,7 @@
         <id property="id" column="id"/>
         <result property="fechainiciorenta" column="fechainiciorenta"/>
         <result property="fechafinrenta" column="fechafinrenta"/>
-        <association property="item" javaType="edu.eci.cvds.samples.entities.Item" columnPrefix="ir_"></association>
+        <association property="item" javaType="edu.eci.cvds.samples.entities.Item" columnPrefix="i_" resultMap="edu.eci.cvds.sampleprj.dao.mybatis.mappers.ItemMapper.ItemResult"></association>
     </resultMap>
 
     <select parameterType="map" id="consultarItemRentado" resultMap="ItemRentadoResult">

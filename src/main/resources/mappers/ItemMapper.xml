@@ -13,7 +13,7 @@
         <result property="tarifaxdia" column="tarifaxdia"/>
         <result property="formatorenta" column="formatorenta"/>
         <result property="genero" column="genero"/>
-        <association property="tipo" javaType="edu.eci.cvds.samples.entities.TipoItem" columnPrefix="ir_i_"></association>
+        <association property="tipo" javaType="edu.eci.cvds.samples.entities.TipoItem" columnPrefix="ti_"></association>
     </resultMap>
 
     <select parameterType="map" id="consultarItems" resultMap="ItemsResult">
