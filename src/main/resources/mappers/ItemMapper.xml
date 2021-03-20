@@ -19,6 +19,10 @@
     <select parameterType="map" id="consultarItems" resultMap="ItemsResult">
         SELECT * FROM VI_ITEMS
     </select>
+
+    <select id="insertarItem">
+        INSERT TO VI_ITEMS() VALUES()
+    </select>
     
     
 </mapper>

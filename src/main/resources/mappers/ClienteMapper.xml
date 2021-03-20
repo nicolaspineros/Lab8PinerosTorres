@@ -16,7 +16,15 @@
     </resultMap>
 
     <select parameterType="map" id="consultarCliente" >
-
+        select
+        c.nombre,
+        c.documento,
+        c.telefono,
+        c.direccion,
+        c.email,
+        c.vetado
+        FROM VI_CLIENTES as c
+        WHERE c.documento = #{idcli}
     </select>
 
     <select parameterType="map" id="consultarClientes" resultMap="ClienteResult">
@@ -43,6 +51,10 @@
         left join VI_ITEMRENTADO as ir on c.documento=ir.CLIENTES_documento
         left join VI_ITEMS as i on ir.ITEMS_id=i.id
         left join VI_TIPOITEM as ti on i.TIPOITEM_id=ti.id
+    </select>
+
+    <select id="agregarItemRentadoACliente">
+        INSERT TO VI_CLIENTES() VALUES()
     </select>
           	
 </mapper>
