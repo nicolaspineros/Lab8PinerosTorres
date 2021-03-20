@@ -15,6 +15,10 @@
         <collection property="rentados" ofType="ItemRentado" resultMap="ItemRentadoResult" columnPrefix="ir_"></collection>
     </resultMap>
 
+    <select parameterType="map" id="consultarCliente" >
+
+    </select>
+
     <select parameterType="map" id="consultarClientes" resultMap="ClienteResult">
         select
         c.nombre,
