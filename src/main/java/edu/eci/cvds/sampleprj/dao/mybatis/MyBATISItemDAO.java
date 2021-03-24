@@ -8,6 +8,8 @@ import edu.eci.cvds.sampleprj.dao.mybatis.mappers.ClienteMapper;
 import edu.eci.cvds.samples.entities.Item;
 import edu.eci.cvds.sampleprj.dao.mybatis.mappers.ItemMapper;
 import edu.eci.cvds.samples.entities.TipoItem;
+import org.mybatis.guice.transactional.Transactional;
+
 import java.sql.SQLException;
 
 public class MyBATISItemDAO implements ItemDAO{
@@ -16,6 +18,7 @@ public class MyBATISItemDAO implements ItemDAO{
     private ItemMapper itemMapper;
 
     @Override
+    @Transactional
     public void save(Item it) throws PersistenceException{
         try{
             itemMapper.insertarItem(it);
@@ -27,6 +30,7 @@ public class MyBATISItemDAO implements ItemDAO{
     }
 
     @Override
+    @Transactional
     public Item load(int id) throws PersistenceException {
         try{
             return itemMapper.consultarItem(id);

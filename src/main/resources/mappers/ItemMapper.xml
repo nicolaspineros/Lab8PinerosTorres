@@ -16,7 +16,7 @@
         <association property="tipo" javaType="edu.eci.cvds.samples.entities.TipoItem" columnPrefix="ti_"></association>
     </resultMap>
 
-    <select parameterType="map" id="consultarItems" resultMap="ItemsResult">
+    <select parameterType="map" id="consultarItems" resultMap="ItemResult">
         SELECT * FROM VI_ITEMS
     </select>
 

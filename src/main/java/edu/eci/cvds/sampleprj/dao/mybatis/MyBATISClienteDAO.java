@@ -7,6 +7,7 @@ import edu.eci.cvds.samples.entities.Cliente;
 
 import javax.inject.Inject;
 import java.util.Date;
+import java.util.List;
 
 public class MyBATISClienteDAO implements ClienteDAO {
 
@@ -23,11 +24,11 @@ public class MyBATISClienteDAO implements ClienteDAO {
     }
 
     @Override
-    public Cliente load(int documento) throws PersistenceException {
+    public List<Cliente> load() throws PersistenceException {
         try {
-            return clienteMapper.consultarCliente(documento);
+            return clienteMapper.consultarClientes();
         }catch(org.apache.ibatis.exceptions.PersistenceException e){
-            throw new PersistenceException("Error al consultar el cliente "+documento,e);
+            throw new PersistenceException("Error al consultar el cliente ",e);
         }
     }
 }

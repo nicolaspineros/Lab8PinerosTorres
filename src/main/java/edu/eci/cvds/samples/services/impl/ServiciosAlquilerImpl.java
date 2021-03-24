@@ -21,6 +21,9 @@ public class ServiciosAlquilerImpl implements ServiciosAlquiler {
     @Inject
     private ItemDAO itemDAO;
 
+    @Inject
+    private ClienteDAO clienteDAO;
+
     @Override
     public int valorMultaRetrasoxDia(int itemId) {
         throw new UnsupportedOperationException("Not supported yet.");
@@ -38,7 +41,11 @@ public class ServiciosAlquilerImpl implements ServiciosAlquiler {
 
     @Override
     public List<Cliente> consultarClientes() throws ExcepcionServiciosAlquiler {
-        throw new UnsupportedOperationException("Not supported yet.");
+        try {
+            return clienteDAO.load();
+        }catch (PersistenceException ex){
+            throw new ExcepcionServiciosAlquiler("Error al consultar cliente",ex);
+        }
     }
 
     @Override
