@@ -30,8 +30,12 @@ public class ServiciosAlquilerImpl implements ServiciosAlquiler {
     }
 
     @Override
-    public Cliente consultarCliente(long docu) throws ExcepcionServiciosAlquiler {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public Cliente consultarCliente(int docu) throws ExcepcionServiciosAlquiler {
+        try{
+            return clienteDAO.loadC(docu);
+        }catch(PersistenceException ex){
+            throw new ExcepcionServiciosAlquiler("Error al consultar cliente",ex);
+        }
     }
 
     @Override
@@ -44,7 +48,7 @@ public class ServiciosAlquilerImpl implements ServiciosAlquiler {
         try {
             return clienteDAO.load();
         }catch (PersistenceException ex){
-            throw new ExcepcionServiciosAlquiler("Error al consultar cliente",ex);
+            throw new ExcepcionServiciosAlquiler("Error al consultar clientes",ex);
         }
     }
 

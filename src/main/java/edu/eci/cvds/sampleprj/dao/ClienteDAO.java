@@ -11,4 +11,5 @@ public interface ClienteDAO {
 
     public List<Cliente> load() throws PersistenceException;
 
+    public Cliente loadC(int documento) throws PersistenceException;
 }

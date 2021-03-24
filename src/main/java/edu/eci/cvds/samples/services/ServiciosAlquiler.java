@@ -11,7 +11,7 @@ public interface ServiciosAlquiler {
 
     public abstract int valorMultaRetrasoxDia(int itemId);
 
-    public abstract Cliente consultarCliente(long docu) throws ExcepcionServiciosAlquiler;
+    public abstract Cliente consultarCliente(int docu) throws ExcepcionServiciosAlquiler;
 
     /**
      * @obj Consultar los items que tenga en su poder un cliente
@@ -57,7 +57,7 @@ public interface ServiciosAlquiler {
      * @param numdias el numero de dias que se le prestara el item
      * @pos el item ya no debe estar disponible, y debe estar asignado al
      * cliente
-     * @throws ExcepcionXX si el identificador no corresponde con un item, o si
+     * @throws ExcepcionServiciosAlquiler si el identificador no corresponde con un item, o si
      * el mismo ya esta alquilado
      */
     public abstract void registrarAlquilerCliente(Date date, long docu, Item item, int numdias) throws ExcepcionServiciosAlquiler;
