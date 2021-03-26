@@ -10,8 +10,9 @@ import java.util.List;
 
 public class ServiceExample {
     public static void main(String args[]) throws ExcepcionServiciosAlquiler {
-        ServiciosAlquiler sa = ServiciosAlquilerFactory.getInstance().getServiciosAlquiler();
-        List<Cliente> clientes = sa.consultarClientes();
-        System.out.println(clientes);
+        //ServiciosAlquiler sa = ServiciosAlquilerFactory.getInstance().getServiciosAlquiler();
+        //List<Cliente> clientes = sa.consultarClientes();
+        //System.out.println(clientes);
+        System.out.println(ServiciosAlquilerFactory.getInstance().getServiciosAlquiler().consultarClientes());
     }
 }

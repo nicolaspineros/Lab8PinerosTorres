@@ -37,7 +37,7 @@ public class ServiciosAlquilerImpl implements ServiciosAlquiler {
             throw new ExcepcionServiciosAlquiler("Error al consultar cliente",ex);
         }
     }
-
+    //Cristhian este jiji 1.1
     @Override
     public List<ItemRentado> consultarItemsCliente(long idcliente) throws ExcepcionServiciosAlquiler {
         throw new UnsupportedOperationException("Not supported yet.");
@@ -60,12 +60,12 @@ public class ServiciosAlquilerImpl implements ServiciosAlquiler {
             throw new ExcepcionServiciosAlquiler("Error al consultar el item "+id,ex);
         }
     }
-
+    //Nicolas
     @Override
     public List<Item> consultarItemsDisponibles() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-    //me
+    //Cristhian 1.2
     @Override
     public long consultarMultaAlquiler(int iditem, Date fechaDevolucion) throws ExcepcionServiciosAlquiler {
         throw new UnsupportedOperationException("Not supported yet.");
@@ -80,17 +80,17 @@ public class ServiciosAlquilerImpl implements ServiciosAlquiler {
     public List<TipoItem> consultarTiposItem() throws ExcepcionServiciosAlquiler {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-    //me
+    //Cristhian punto 2
     @Override
     public void registrarAlquilerCliente(Date date, long docu, Item item, int numdias) throws ExcepcionServiciosAlquiler {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-
+    //Nicolas
     @Override
     public void registrarCliente(Cliente c) throws ExcepcionServiciosAlquiler {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-    //me
+    //Cristhian
     @Override
     public long consultarCostoAlquiler(int iditem, int numdias) throws ExcepcionServiciosAlquiler {
         throw new UnsupportedOperationException("Not supported yet.");
