@@ -41,6 +41,5 @@ public interface ClienteMapper {
                                @Param("telcli") String telefono,
                                @Param("dircli") String direccion,
                                @Param("emailcli") String email,
-                               @Param("vetadocli") boolean vetado,
-                               @Param("rentadoscli") ArrayList<ItemRentado>rentados);
+                               @Param("vetadocli") boolean vetado);
 }

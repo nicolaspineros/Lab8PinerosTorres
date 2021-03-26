@@ -42,7 +42,7 @@ public class ServiciosAlquilerImpl implements ServiciosAlquiler {
             throw new ExcepcionServiciosAlquiler("Error al consultar cliente",ex);
         }
     }
-    //Cristhian este jiji 1.1
+
     @Override
     public List<ItemRentado> consultarItemsCliente(long idcliente) throws ExcepcionServiciosAlquiler {
         throw new UnsupportedOperationException("Not supported yet.");
@@ -65,7 +65,7 @@ public class ServiciosAlquilerImpl implements ServiciosAlquiler {
             throw new ExcepcionServiciosAlquiler("Error al consultar el item "+id,ex);
         }
     }
-    //Nicolas
+
     @Override
     public List<Item> consultarItemsDisponibles() {
         return itemDAO.loadl();
@@ -85,7 +85,7 @@ public class ServiciosAlquilerImpl implements ServiciosAlquiler {
     public List<TipoItem> consultarTiposItem() throws ExcepcionServiciosAlquiler {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-    //Cristhian punto 2
+
     @Override
     public void registrarAlquilerCliente(Date date, long docu, Item item, int numdias) throws ExcepcionServiciosAlquiler {
         try{
@@ -100,17 +100,16 @@ public class ServiciosAlquilerImpl implements ServiciosAlquiler {
             throw new ExcepcionServiciosAlquiler("Error al agregar alquiler",ex);
         }
     }
-    //Nicolas
+
     @Override
     public void registrarCliente(Cliente c) throws ExcepcionServiciosAlquiler {
         try {
-            clienteDAO.createC(c.getNombre(),c.getDocumento(),c.getTelefono(),c.getDireccion(),c.getEmail(),c.isVetado(),c.getRentados());
+            clienteDAO.createC(c.getNombre(),c.getDocumento(),c.getTelefono(),c.getDireccion(),c.getEmail(),c.isVetado());
         }catch (PersistenceException ex){
             throw new ExcepcionServiciosAlquiler("Error al agregar cliente",ex);
         }
     }
 
-    //Cristhian
     @Override
     public long consultarCostoAlquiler(int iditem, int numdias) throws ExcepcionServiciosAlquiler {
         try{

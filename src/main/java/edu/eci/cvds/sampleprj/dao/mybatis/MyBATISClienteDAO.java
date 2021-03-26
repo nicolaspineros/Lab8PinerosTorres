@@ -49,9 +49,9 @@ public class MyBATISClienteDAO implements ClienteDAO {
 
     @Override
     @Transactional
-    public void createC(String nombre, long documento, String telefono, String direccion, String email, boolean vetado, ArrayList<ItemRentado> rentados) throws PersistenceException{
+    public void createC(String nombre, long documento, String telefono, String direccion, String email, boolean vetado) throws PersistenceException{
         try{
-            clienteMapper.agregarCliente(nombre,documento,telefono,direccion,email,vetado,rentados);
+            clienteMapper.agregarCliente(nombre,documento,telefono,direccion,email,vetado);
         }catch(org.apache.ibatis.exceptions.PersistenceException e){
             throw new PersistenceException("Error al consultar el cliente ",e);
         }

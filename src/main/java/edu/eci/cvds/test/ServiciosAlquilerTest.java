@@ -23,7 +23,7 @@ public class ServiciosAlquilerTest {
     ServiciosAlquiler serviciosAlquiler;
 
     public ServiciosAlquilerTest() {
-        serviciosAlquiler = ServiciosAlquilerFactory.getInstance().getServiciosAlquilerTesting();
+        serviciosAlquiler = ServiciosAlquilerFactory.getInstance().getServiciosAlquiler();
     }
 
     @Before
@@ -51,9 +51,11 @@ public class ServiciosAlquilerTest {
         try {
             Cliente rcliente = new Cliente("Nicop", 1015484,"301236","Av7cll127","onpc@mail.com",false,null);
             serviciosAlquiler.registrarCliente(rcliente);
+            Cliente ncliente = serviciosAlquiler.consultarCliente(1015484);
+            Assert.assertTrue(ncliente != null);
         }catch (ExcepcionServiciosAlquiler ex){
             ex.printStackTrace();
         }
     }
-    
+
 }
