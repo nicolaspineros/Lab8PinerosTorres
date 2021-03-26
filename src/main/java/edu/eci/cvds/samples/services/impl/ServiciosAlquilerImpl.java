@@ -65,7 +65,7 @@ public class ServiciosAlquilerImpl implements ServiciosAlquiler {
     public List<Item> consultarItemsDisponibles() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-
+    //me
     @Override
     public long consultarMultaAlquiler(int iditem, Date fechaDevolucion) throws ExcepcionServiciosAlquiler {
         throw new UnsupportedOperationException("Not supported yet.");
@@ -80,7 +80,7 @@ public class ServiciosAlquilerImpl implements ServiciosAlquiler {
     public List<TipoItem> consultarTiposItem() throws ExcepcionServiciosAlquiler {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-
+    //me
     @Override
     public void registrarAlquilerCliente(Date date, long docu, Item item, int numdias) throws ExcepcionServiciosAlquiler {
         throw new UnsupportedOperationException("Not supported yet.");
@@ -90,7 +90,7 @@ public class ServiciosAlquilerImpl implements ServiciosAlquiler {
     public void registrarCliente(Cliente c) throws ExcepcionServiciosAlquiler {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-
+    //me
     @Override
     public long consultarCostoAlquiler(int iditem, int numdias) throws ExcepcionServiciosAlquiler {
         throw new UnsupportedOperationException("Not supported yet.");
