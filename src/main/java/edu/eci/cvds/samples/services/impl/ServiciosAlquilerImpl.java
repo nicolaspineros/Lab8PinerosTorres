@@ -63,9 +63,9 @@ public class ServiciosAlquilerImpl implements ServiciosAlquiler {
     //Nicolas
     @Override
     public List<Item> consultarItemsDisponibles() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return itemDAO.loadl();
     }
-    //Cristhian 1.2
+
     @Override
     public long consultarMultaAlquiler(int iditem, Date fechaDevolucion) throws ExcepcionServiciosAlquiler {
         throw new UnsupportedOperationException("Not supported yet.");
@@ -88,8 +88,13 @@ public class ServiciosAlquilerImpl implements ServiciosAlquiler {
     //Nicolas
     @Override
     public void registrarCliente(Cliente c) throws ExcepcionServiciosAlquiler {
-        throw new UnsupportedOperationException("Not supported yet.");
+        try {
+            clienteDAO.createC(c.getNombre(),c.getDocumento(),c.getTelefono(),c.getDireccion(),c.getEmail(),c.isVetado(),c.getRentados());
+        }catch (PersistenceException ex){
+            throw new ExcepcionServiciosAlquiler("Error al agregar cliente",ex);
+        }
     }
+
     //Cristhian
     @Override
     public long consultarCostoAlquiler(int iditem, int numdias) throws ExcepcionServiciosAlquiler {

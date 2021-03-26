@@ -11,6 +11,7 @@ import edu.eci.cvds.samples.entities.TipoItem;
 import org.mybatis.guice.transactional.Transactional;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class MyBATISItemDAO implements ItemDAO{
 
@@ -38,8 +39,12 @@ public class MyBATISItemDAO implements ItemDAO{
         catch(org.apache.ibatis.exceptions.PersistenceException e){
             throw new PersistenceException("Error al consultar el item "+id,e);
         }
+    }
 
-
+    @Override
+    @Transactional
+    public List<Item> loadl() {
+        return itemMapper.consultarItems();
     }
 
 }
