@@ -13,6 +13,7 @@ public class ServiceExample {
         //ServiciosAlquiler sa = ServiciosAlquilerFactory.getInstance().getServiciosAlquiler();
         //List<Cliente> clientes = sa.consultarClientes();
         //System.out.println(clientes);
-        System.out.println(ServiciosAlquilerFactory.getInstance().getServiciosAlquiler().consultarClientes());
+        //System.out.println(ServiciosAlquilerFactory.getInstance().getServiciosAlquiler().consultarClientes());
+        System.out.println(ServiciosAlquilerFactory.getInstance().getServiciosAlquiler().registrarAlquilerCliente());
     }
 }

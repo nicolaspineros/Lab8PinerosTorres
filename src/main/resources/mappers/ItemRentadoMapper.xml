@@ -16,4 +16,20 @@
         SELECT * FROM VI_ITEMRENTADO
     </select>
 
+    <insert id="createRentado">
+        INSERT INTO VI_ITEMRENTADO(id, CLIENTES_documento, ITEMS_id, fechainiciorenta, fechafinrenta)
+        VALUES(#{idlong}, #{idCli}, #{item}, #{fechaI}, #{fechaF})
+    </insert>
+
+    <select parameterType="map" id="consultarItemRentadoCliente">
+        SELECT
+        c.id,
+        c.CLIENTE_documento,
+        c.ITEMS_id,
+        c.fechainiciorenta,
+        c.fechafinrenta,
+        FROM VI_ITEMRENTADO as c
+        WHERE c.id = #{iditemrentadocliente}
+    </select>
+
 </mapper>

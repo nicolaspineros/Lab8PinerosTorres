@@ -4,6 +4,7 @@ import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import edu.eci.cvds.sampleprj.dao.ClienteDAO;
 import edu.eci.cvds.sampleprj.dao.ItemDAO;
+import edu.eci.cvds.sampleprj.dao.ItemRentadoDAO;
 import edu.eci.cvds.sampleprj.dao.PersistenceException;
 
 import edu.eci.cvds.samples.entities.Cliente;
@@ -13,6 +14,7 @@ import edu.eci.cvds.samples.entities.TipoItem;
 import edu.eci.cvds.samples.services.ExcepcionServiciosAlquiler;
 import edu.eci.cvds.samples.services.ServiciosAlquiler;
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @Singleton
@@ -23,6 +25,9 @@ public class ServiciosAlquilerImpl implements ServiciosAlquiler {
 
     @Inject
     private ClienteDAO clienteDAO;
+
+    @Inject
+    private ItemRentadoDAO itemRentadoDAO;
 
     @Override
     public int valorMultaRetrasoxDia(int itemId) {
@@ -83,7 +88,17 @@ public class ServiciosAlquilerImpl implements ServiciosAlquiler {
     //Cristhian punto 2
     @Override
     public void registrarAlquilerCliente(Date date, long docu, Item item, int numdias) throws ExcepcionServiciosAlquiler {
-        throw new UnsupportedOperationException("Not supported yet.");
+        try{
+            LocalDate ld=date.toLocalDate();
+            LocalDate ld2=ld.plusDays(numdias);
+            clienteDAO.loadC((int)docu);
+            consultarItem(item.getId());
+            int id = itemRentadoDAO.load().get(itemRentadoDAO.load().size()-1).getId()+1;
+            itemRentadoDAO.save(id,(int)docu,item,ld,ld2);
+            clienteDAO.loadC((int)docu).setRentados(itemRentadoDAO.loadR(id));
+        }catch(PersistenceException ex){
+            throw new ExcepcionServiciosAlquiler("Error al agregar alquiler",ex);
+        }
     }
     //Nicolas
     @Override
@@ -98,7 +113,11 @@ public class ServiciosAlquilerImpl implements ServiciosAlquiler {
     //Cristhian
     @Override
     public long consultarCostoAlquiler(int iditem, int numdias) throws ExcepcionServiciosAlquiler {
-        throw new UnsupportedOperationException("Not supported yet.");
+        try{
+            return itemDAO.load(iditem).getTarifaxDia()*numdias;
+        }catch(PersistenceException ex){
+            throw new ExcepcionServiciosAlquiler("Error al consultar costo alquiler",ex);
+        }
     }
 
     @Override
