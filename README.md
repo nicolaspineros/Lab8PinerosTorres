@@ -1,5 +1,6 @@
 [![CircleCI](https://img.shields.io/circleci/build/gh/nicolaspineros/Lab8PinerosTorres)](https://app.circleci.com/pipelines/github/nicolaspineros/Lab8PinerosTorres)
 [Pagina Heroku](https://pinerostorreslab8.herokuapp.com/faces/registrocliente.xhtml)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/ce4652e81e594ab1931d893a1fb3000a)](https://www.codacy.com/gh/nicolaspineros/Lab8PinerosTorres/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=nicolaspineros/Lab8PinerosTorres&amp;utm_campaign=Badge_Grade)
 ### Escuela Colombiana de Ingeniería
 ### Ciclos de Vida del desarrollo de Software – CVDS
 #### Tecnologías de persistencia - Frameworks de Persistencia - Introducción a MyBatis
