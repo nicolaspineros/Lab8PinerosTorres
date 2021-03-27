@@ -25,11 +25,20 @@ public class AlquilerItemsBean extends BasePageBean{
         }
     }
 
-    public void registrarAlquilerCliente(Date date, long docu, Item item, int numdias){
+    public void addAlquiler(Date date, long docu, Item item, int numdias){
         try{
             sa.registrarAlquilerCliente(date, docu, item, numdias);
         }catch(ExcepcionServiciosAlquiler excepcionServiciosAlquiler){
+            excepcionServiciosAlquiler.printStackTrace();
+        }
+    }
 
+    public long getCosto(int iditem, int numdias){
+        try {
+            return sa.consultarCostoAlquiler(iditem,numdias);
+        }catch (ExcepcionServiciosAlquiler excepcionServiciosAlquiler){
+            excepcionServiciosAlquiler.printStackTrace();
+            return -1;
         }
     }
 }

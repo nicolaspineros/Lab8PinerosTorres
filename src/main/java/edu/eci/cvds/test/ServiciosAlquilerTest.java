@@ -74,7 +74,7 @@ public class ServiciosAlquilerTest {
             ex.printStackTrace();
         }
     }
-
+    /*
     @Test
     public void consultarCostoAlquiler(){
         try{
@@ -83,4 +83,5 @@ public class ServiciosAlquilerTest {
             ex.printStackTrace();
         }
     }
+     */
 }
