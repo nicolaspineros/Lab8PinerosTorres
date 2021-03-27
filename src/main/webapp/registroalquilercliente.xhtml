@@ -11,6 +11,27 @@
 </h:head>
 <h:body>
     <h2>registrar alquiler clientes</h2>
-    <p:inputText value="Registrar" actionListener="#{alquilerItemsBean.addAlquiler}"/>
+    <p:inputText value="Registrar" actionListener="#{aplicationBean.itemRentado}"/>
+    <h:form id="registro">
+        <h:panelGrid id="grid" cellpadding="7" columns="2" styleClass="p-mb-3">
+            <p:outputLabel for="id" value="Id:"/>
+            <p:inputText id="id" value="#{aplicationBean.id}"/>
+
+            <p:outputLabel for="CLIENTES_documento" value="Documento:"/>
+            <p:inputText id="documento" value="#{aplicationBean.documento}"/>
+
+            <p:outputLabel for="ITEMS_id" value="Item:"/>
+            <p:inputText id="items_id" value="#{aplicationBean.items_id}"/>
+
+            <p:outputLabel for="fechainiciorenta" value="Fecha Inicio:"/>
+            <p:inputText id="fechainiciorenta" value="#{aplicationBean.fechainiciorenta}"/>
+
+            <p:outputLabel for="fechafinrenta" value="Fecha Fin:"/>
+            <p:inputText id="fechafinrenta" value="#{aplicationBean.fechafinrenta}"/>
+            
+        </h:panelGrid>
+
+        <p:commandButton value="Registrar" actionListener="#{aplicationBean.registrarcliente()}"/>
+    </h:form>
 </h:body>
 </html>
