@@ -22,4 +22,5 @@ public class AlquilerItemsBean extends BasePageBean{
             return null;
         }
     }
+
 }
