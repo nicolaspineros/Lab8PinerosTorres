@@ -23,6 +23,19 @@
     <select id="insertarItem">
         INSERT TO VI_ITEMS() VALUES()
     </select>
+
+    <select parameterType="map" id="consultarItem" resultMap="ItemResult">
+        SELECT
+        c.id,
+        c.nombre,
+        c.descripcion,
+        c.fechalanzamiento,
+        c.tarifaxdia,
+        c.formatorenta,
+        c.genero,
+        c.TIPOITEM_id
+        FROM VI_ITEMS as c WHERE c.id = #{idItem}
+    </select>
     
     
 </mapper>

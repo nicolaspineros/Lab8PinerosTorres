@@ -14,6 +14,6 @@ public class ServiceExample {
         //List<Cliente> clientes = sa.consultarClientes();
         //System.out.println(clientes);
         //System.out.println(ServiciosAlquilerFactory.getInstance().getServiciosAlquiler().consultarClientes());
-        System.out.println(ServiciosAlquilerFactory.getInstance().getServiciosAlquiler().registrarAlquilerCliente());
+        //System.out.println(ServiciosAlquilerFactory.getInstance().getServiciosAlquiler().registrarAlquilerCliente());
     }
 }
