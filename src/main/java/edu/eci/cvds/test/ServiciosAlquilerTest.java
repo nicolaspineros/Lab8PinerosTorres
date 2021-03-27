@@ -20,15 +20,13 @@ public class ServiciosAlquilerTest {
     private SqlSession sqlSession;
 
     ServiciosAlquiler serviciosAlquiler;
-    private int documento;
 
     public ServiciosAlquilerTest() {
-        serviciosAlquiler = ServiciosAlquilerFactory.getInstance().getServiciosAlquilerTesting();
+        serviciosAlquiler = ServiciosAlquilerFactory.getInstance().getServiciosAlquiler();
     }
 
     @Before
     public void setUp() {
-        documento=6;
     }
 
     @Test
@@ -36,7 +34,7 @@ public class ServiciosAlquilerTest {
         for(int i = 0; i < 100; i += 10) {
             boolean r = false;
             try {
-                Cliente cliente = serviciosAlquiler.consultarCliente(6);
+                Cliente cliente = serviciosAlquiler.consultarCliente(i);
             } catch(ExcepcionServiciosAlquiler e) {
                 r = true;
             } catch(IndexOutOfBoundsException e) {
@@ -46,4 +44,17 @@ public class ServiciosAlquilerTest {
             Assert.assertTrue(r);
         }
     }
+
+    @Test
+    public void RegistroCliente(){
+        try {
+            Cliente rcliente = new Cliente("Nicop", 1015484,"301236","Av7cll127","onpc@mail.com",false,null);
+            serviciosAlquiler.registrarCliente(rcliente);
+            Cliente ncliente = serviciosAlquiler.consultarCliente(1015484);
+            Assert.assertTrue(ncliente != null);
+        }catch (ExcepcionServiciosAlquiler ex){
+            ex.printStackTrace();
+        }
+    }
+
 }

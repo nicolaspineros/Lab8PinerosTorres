@@ -15,5 +15,5 @@ public interface ClienteDAO {
 
     public Cliente loadC(int documento) throws PersistenceException;
 
-    void createC(String nombre, long documento, String telefono, String direccion, String email, boolean vetado, ArrayList<ItemRentado> rentados) throws PersistenceException;
+    void createC(String nombre, long documento, String telefono, String direccion, String email, boolean vetado) throws PersistenceException;
 }

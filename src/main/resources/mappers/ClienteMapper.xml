@@ -17,14 +17,14 @@
 
     <select parameterType="map" id="consultarCliente" >
         select
-        c.nombre,
         c.documento,
+        c.nombre,
         c.telefono,
         c.direccion,
         c.email,
         c.vetado
         FROM VI_CLIENTES as c
-        WHERE c.documento = #{idcli}
+        WHERE c.documento = #{documentcli}
     </select>
 
     <select parameterType="map" id="consultarClientes" resultMap="ClienteResult">
@@ -57,9 +57,9 @@
         INSERT TO VI_CLIENTES() VALUES()
     </select>
 
-    <insert id="registrarCliente">
+    <insert id="agregarCliente">
         INSERT INTO VI_CLIENTES (documento,nombre,telefono,direccion,email,vetado)
-        VALUES (#{nombrecli},#{documentcli},#{telcli},#{dircli},#{emailcli},#{vetadocli},#{rentadoscli})
+        VALUES (#{documentcli},#{nombrecli},#{telcli},#{dircli},#{emailcli},#{vetadocli})
     </insert>
           	
 </mapper>
