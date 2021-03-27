@@ -2,11 +2,13 @@ package edu.eci.cvds.view;
 
 
 import edu.eci.cvds.samples.entities.Cliente;
+import edu.eci.cvds.samples.entities.Item;
 import edu.eci.cvds.samples.services.ExcepcionServiciosAlquiler;
 import edu.eci.cvds.samples.services.ServiciosAlquiler;
 import edu.eci.cvds.samples.services.ServiciosAlquilerFactory;
 
 import javax.faces.bean.*;
+import java.sql.Date;
 import java.util.List;
 
 @ApplicationScoped
@@ -23,4 +25,11 @@ public class AlquilerItemsBean extends BasePageBean{
         }
     }
 
+    public void registrarAlquilerCliente(Date date, long docu, Item item, int numdias){
+        try{
+            sa.registrarAlquilerCliente(date, docu, item, numdias);
+        }catch(ExcepcionServiciosAlquiler excepcionServiciosAlquiler){
+
+        }
+    }
 }
