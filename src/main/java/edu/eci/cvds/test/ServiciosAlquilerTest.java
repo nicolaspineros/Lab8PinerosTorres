@@ -75,12 +75,5 @@ public class ServiciosAlquilerTest {
         }
     }
 
-    @Test
-    public void consultarCostoAlquiler(){
-        try{
 
-        }catch(ExcepcionServiciosAlquiler ex){
-            ex.printStackTrace();
-        }
-    }
 }

@@ -12,5 +12,29 @@
     <h:body>
         <h2>Consultar clientes registrados</h2>
         <p:commandButton value="Consultar" actionListener="#{aplicationBean.clientes}"/>
+        <h:form id="registro">
+            <h:panelGrid id="grid" cellpadding="7" columns="2" styleClass="p-mb-3">
+                <p:outputLabel for="nombre" value="Nombre:"/>
+                <p:inputText id="nombre" value="#{aplicationBean.nombre}"/>
+
+                <p:outputLabel for="documento" value="Documento:"/>
+                <p:inputText id="documento" value="#{aplicationBean.documento}"/>
+
+                <p:outputLabel for="telefono" value="Telefono:"/>
+                <p:inputText id="telefono" value="#{aplicationBean.telefono}"/>
+
+                <p:outputLabel for="direccion" value="Direccion:"/>
+                <p:inputText id="direccion" value="#{aplicationBean.direccion}"/>
+
+                <p:outputLabel for="email" value="Email:"/>
+                <p:inputText id="email" value="#{aplicationBean.email}"/>
+
+                <p:outputLabel for="vetado" value="Vetado:"/>
+                <p:inputText id="vetado" value="#{aplicationBean.vetado}"/>
+
+            </h:panelGrid>
+
+            <p:commandButton value="Registrar" actionListener="#{aplicationBean.registrarcliente()}"/>
+        </h:form>
     </h:body>
 </html>
