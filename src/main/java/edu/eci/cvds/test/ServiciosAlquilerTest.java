@@ -1,11 +1,16 @@
 package edu.eci.cvds.test;
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.google.inject.Inject;
+import edu.eci.cvds.sampleprj.dao.ItemRentadoDAO;
 import edu.eci.cvds.sampleprj.dao.PersistenceException;
 import edu.eci.cvds.samples.entities.Cliente;
+import edu.eci.cvds.samples.entities.Item;
+import edu.eci.cvds.samples.entities.ItemRentado;
 import edu.eci.cvds.samples.services.ExcepcionServiciosAlquiler;
 import edu.eci.cvds.samples.services.ServiciosAlquiler;
 import edu.eci.cvds.samples.services.ServiciosAlquilerFactory;
@@ -57,4 +62,25 @@ public class ServiciosAlquilerTest {
         }
     }
 
+    @Test
+    public void registrarAlquilerCliente(){
+        try {
+            Date ld = Date.valueOf(LocalDate.now());
+            Item item = serviciosAlquiler.consultarItem(3);
+            serviciosAlquiler.registrarAlquilerCliente(ld, 3, item, 40);
+            List<ItemRentado> it = serviciosAlquiler.consultarItemsCliente(3);
+            Assert.assertTrue(it!=null);
+        }catch(ExcepcionServiciosAlquiler ex){
+            ex.printStackTrace();
+        }
+    }
+
+    @Test
+    public void consultarCostoAlquiler(){
+        try{
+
+        }catch(ExcepcionServiciosAlquiler ex){
+            ex.printStackTrace();
+        }
+    }
 }

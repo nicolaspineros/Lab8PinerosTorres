@@ -20,10 +20,6 @@
         SELECT * FROM VI_ITEMS
     </select>
 
-    <select id="insertarItem">
-        INSERT TO VI_ITEMS() VALUES()
-    </select>
-
     <select parameterType="map" id="consultarItem" resultMap="ItemResult">
         SELECT
         c.id,
